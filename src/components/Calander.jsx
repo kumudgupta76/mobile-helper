@@ -1,4 +1,4 @@
-import { Calendar } from "antd";
+import { Calendar, Col, Row, Select, Radio, Typography } from "antd";
 import React, { useEffect, useState } from "react";
 
 const CalendarComponent = () => {
@@ -25,17 +25,25 @@ const CalendarComponent = () => {
   console.log(isMobile, window.innerWidth);
 
   function refreshTime() {
-    const timeDisplay = document.getElementById("time");
+    const timeDisplay = document.getElementById("time-now");
     const dateString = new Date().toLocaleString();
     const formattedString = dateString.replace(", ", " - ");
     timeDisplay.textContent = formattedString;
   }
-    setInterval(refreshTime, 1000);
+  setInterval(refreshTime, 1000);
+
+  function onPanelChange(value, mode) {
+    console.log(value, mode);
+  }
   return (
-    <div style={isMobile ? style :{}}>
-        <div id="time" className="container"></div>
-      <Calendar fullscreen={!isMobile} className="container"></Calendar>
-    </div>
+    <Row>
+      <Col style={{ width: "100%" }}>
+        <div id="time-now" className="container"></div>
+      </Col>
+      <Col>
+        <Calendar fullscreen={isMobile} className="container"></Calendar>
+      </Col>
+    </Row>
   );
 };
 
