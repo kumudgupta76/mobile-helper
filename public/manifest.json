@@ -1,6 +1,6 @@
 {
-    "short_name": "Pwa Demo",
-    "name": "Pwa Demo",
+    "short_name": "CalApp",
+    "name": "Calander Application",
     "icons": [
       {
         "src": "icon.png",
