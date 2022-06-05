@@ -17,7 +17,19 @@ code {
   text-align: center;
   padding: 10px !important;
   border: 1px solid;
-  border-radius: 4;
-  margin: 10px !important;
+  border-radius: 4 !important;
+  margin: 20px !important;
   font-size: 40px;
+  font-family: "monospace";
+}
+
+.date-cell {
+  font-size: 40px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid;
+  border-radius: 4px;
+}
+.ant-picker-cell-selected .date-cell {
+  background-color: lightgreen;
 }
