@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/cal-app/build/static/css/main.5c704c99.css",
-    "main.js": "/cal-app/build/static/js/main.72f16903.js",
-    "static/js/787.22307a73.chunk.js": "/cal-app/build/static/js/787.22307a73.chunk.js",
-    "static/media/logo.svg": "/cal-app/build/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/cal-app/build/index.html",
-    "main.5c704c99.css.map": "/cal-app/build/static/css/main.5c704c99.css.map",
-    "main.72f16903.js.map": "/cal-app/build/static/js/main.72f16903.js.map",
-    "787.22307a73.chunk.js.map": "/cal-app/build/static/js/787.22307a73.chunk.js.map"
+    "main.css": "/cal-app/static/css/main.5c704c99.css",
+    "main.js": "/cal-app/static/js/main.10927894.js",
+    "static/js/787.22307a73.chunk.js": "/cal-app/static/js/787.22307a73.chunk.js",
+    "static/media/logo.svg": "/cal-app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/cal-app/index.html",
+    "main.5c704c99.css.map": "/cal-app/static/css/main.5c704c99.css.map",
+    "main.10927894.js.map": "/cal-app/static/js/main.10927894.js.map",
+    "787.22307a73.chunk.js.map": "/cal-app/static/js/787.22307a73.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5c704c99.css",
-    "static/js/main.72f16903.js"
+    "static/js/main.10927894.js"
   ]
 }
