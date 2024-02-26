@@ -28,7 +28,7 @@ const CalendarComponent = () => {
     const timeDisplay = document.getElementById("time-now");
     const dateString = new Date().toLocaleString();
     const formattedString = dateString.replace(", ", " - ");
-    timeDisplay.textContent = formattedString;
+    timeDisplay.textContent = "Today : " + formattedString;
   }
   setInterval(refreshTime, 1000);
 
