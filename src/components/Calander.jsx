@@ -36,6 +36,7 @@ const CalendarComponent = () => {
     console.log(value, mode);
   }
   return (
+    <div className="outer-container">
     <Row>
       <Col style={{ width: "100%" }}>
         <div id="time-now" className="container"></div>
@@ -146,6 +147,7 @@ const CalendarComponent = () => {
         </div>
       </Col>
     </Row>
+    </div>
   );
 };
 

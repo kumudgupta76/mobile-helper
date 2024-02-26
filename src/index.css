@@ -12,15 +12,24 @@ code {
     monospace;
 }
 
+.outer-container {
+  /* background: #e0dfff; */
+}
+
+
+
 .container {
-  width: 100%;
   text-align: center;
   padding: 10px !important;
   border: 1px solid;
-  border-radius: 4 !important;
+  border-radius: 10px !important;
   margin: 20px !important;
   font-size: 40px;
-  font-family: "monospace";
+  color: #060663 !important;
+}
+
+.ant-picker-cell-in-view {
+  color: #060663 !important;
 }
 
 .date-cell {
@@ -29,7 +38,12 @@ code {
   margin: 10px;
   border: 1px solid;
   border-radius: 4px;
+  background: #9f9ee5;;
 }
 .ant-picker-cell-selected .date-cell {
-  background-color: lightgreen;
+  background-color: #5279e5;
+}
+
+.ant-typography {
+  color: #060663 !important;
 }
