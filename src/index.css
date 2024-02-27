@@ -23,7 +23,7 @@ code {
   padding: 10px !important;
   border: 1px solid;
   border-radius: 10px !important;
-  margin: 20px !important;
+  margin: 10px !important;
   font-size: 40px;
   color: #060663 !important;
 }
@@ -33,9 +33,9 @@ code {
 }
 
 .date-cell {
-  font-size: 40px;
-  padding: 10px;
-  margin: 10px;
+  font-size: 20px;
+  padding: 7px;
+  margin: 7px;
   border: 1px solid;
   border-radius: 4px;
   background: #9f9ee5;;

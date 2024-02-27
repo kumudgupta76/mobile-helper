@@ -1,5 +1,9 @@
 import { Calendar, Col, Row, Select, Radio, Typography } from "antd";
 import React, { useEffect, useState } from "react";
+import dayjs from "dayjs";
+
+const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
 
 const CalendarComponent = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -35,6 +39,17 @@ const CalendarComponent = () => {
   function onPanelChange(value, mode) {
     console.log(value, mode);
   }
+
+  const [value, setValue] = useState(() => dayjs('2017-01-25'));
+    const [selectedValue, setSelectedValue] = useState(() => dayjs('2017-01-25'));
+  const onSelect = (newValue) => {
+    setValue(newValue);
+    setSelectedValue(newValue);
+  };
+  const onPanelChange2 = (newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <div className="outer-container">
     <Row>
@@ -42,7 +57,10 @@ const CalendarComponent = () => {
         <div id="time-now" className="container"></div>
       </Col>
       <Col>
-        <div className="container">
+        <Row>
+          <Col span={12} sm={24}>
+          <Typography.Title level={4} className="container">{`Current Month - ${month[new Date().getMonth()]}`}</Typography.Title>
+          <div className="container">
           <Calendar
             fullscreen={false}
             headerRender={({ value, type, onChange, onTypeChange }) => {
@@ -91,7 +109,7 @@ const CalendarComponent = () => {
                     justifyContent: "space-between"
                   }}
                 >
-                  <Typography.Title level={2}>{`Selected Date - ${
+                  <Typography.Title level={4}>{`Selected Date - ${
                     current.date() + "-" + (month + 1) + "-" + year
                   }`}</Typography.Title>{" "}
                   <Row gutter={8}>
@@ -145,6 +163,14 @@ const CalendarComponent = () => {
             onPanelChange={onPanelChange}
           />
         </div>
+          </Col>
+          <Col span={12} sm={24}>
+          <Typography.Title level={4} className="container">{`Current Month - ${month[new Date().getMonth()+1]}`}</Typography.Title>
+          <div className="container">
+                {/*<Calendar value={value} onSelect={onSelect} onPanelChange={onPanelChange2} />*/}
+        </div>
+          </Col>
+        </Row>
       </Col>
     </Row>
     </div>
