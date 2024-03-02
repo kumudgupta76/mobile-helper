@@ -20,12 +20,12 @@ code {
 
 .container {
   text-align: center;
-  padding: 10px !important;
+  padding: 10px;
   border: 1px solid;
-  border-radius: 10px !important;
-  margin: 10px !important;
-  font-size: 40px;
-  color: #060663 !important;
+  border-radius: 5px;
+  margin: 10px;
+  font-size: 30px;
+  color: #060663;
 }
 
 .ant-picker-cell-in-view {
@@ -40,6 +40,16 @@ code {
   border-radius: 4px;
   background: #9f9ee5;;
 }
+
+.date-cell-next {
+  font-size: 20px;
+  padding: 7px;
+  margin: 7px;
+  border: 1px solid;
+  border-radius: 4px;
+  background: #9f9ee5;;
+}
+
 .ant-picker-cell-selected .date-cell {
   background-color: #5279e5;
 }

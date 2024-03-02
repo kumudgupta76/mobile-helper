@@ -4,6 +4,100 @@ import dayjs from "dayjs";
 
 const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
+const HeaderComponent = ({ value, type, onChange, onTypeChange }) => {
+  const start = 0;
+  const end = 12;
+  const monthOptions = [];
+  const current = value.clone();
+  const localeData = value.localeData();
+  const months = [];
+
+  for (let i = 0; i < 12; i++) {
+    current.month(i);
+    months.push(localeData.monthsShort(current));
+  }
+
+  for (let index = start; index < end; index++) {
+    monthOptions.push(
+      <Select.Option className="month-item" key={`${index}`}>
+        {months[index]}
+      </Select.Option>
+    );
+  }
+
+  const month = value.month();
+  const year = value.year();
+  const options = [];
+
+  for (let i = year - 10; i < year + 10; i += 1) {
+    options.push(
+      <Select.Option key={i} value={i} className="year-item">
+        {i}
+      </Select.Option>
+    );
+  }
+  console.log(
+    month,
+    year,
+    current.toDate(),
+    current.toLocaleString()
+  );
+  return (
+    <div
+      style={{
+        padding: 8,
+        display: "flex",
+        justifyContent: "space-between"
+      }}
+    >
+      <Typography.Title level={4}>{`Selected Date - ${
+        current.date() + "-" + (month + 1) + "-" + year
+      }`}</Typography.Title>{" "}
+      <Row gutter={8}>
+        <Col>
+          <Radio.Group
+            size="large"
+            onChange={(e) => onTypeChange(e.target.value)}
+            value={type}
+          >
+            <Radio.Button value="month">Month</Radio.Button>
+            <Radio.Button value="year">Year</Radio.Button>
+          </Radio.Group>
+        </Col>
+        <Col>
+          <Select
+            size="large"
+            dropdownMatchSelectWidth={false}
+            className="my-year-select"
+            onChange={(newYear) => {
+              const now = value.clone().year(Number(newYear));
+              onChange(now);
+            }}
+            value={String(year)}
+          >
+            {options}
+          </Select>
+        </Col>
+        <Col>
+          <Select
+            size="large"
+            dropdownMatchSelectWidth={false}
+            value={String(month)}
+            onChange={(selectedMonth) => {
+              console.log(selectedMonth);
+              const newValue = value.clone();
+              newValue.month(parseInt(selectedMonth, 10));
+              console.log(selectedMonth, newValue.toLocaleString());
+              onChange(newValue);
+            }}
+          >
+            {monthOptions}
+          </Select>
+        </Col>
+      </Row>
+    </div>
+  );
+};
 
 const CalendarComponent = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -40,7 +134,7 @@ const CalendarComponent = () => {
     console.log(value, mode);
   }
 
-  const [value, setValue] = useState(() => dayjs('2017-01-25'));
+  const [value, setValue] = useState(() => dayjs());
     const [selectedValue, setSelectedValue] = useState(() => dayjs('2017-01-25'));
   const onSelect = (newValue) => {
     setValue(newValue);
@@ -58,105 +152,12 @@ const CalendarComponent = () => {
       </Col>
       <Col>
         <Row>
-          <Col span={12} sm={24}>
-          <Typography.Title level={4} className="container">{`Current Month - ${month[new Date().getMonth()]}`}</Typography.Title>
+          <Col span={12} sm={24} xs={24}>
+          <Typography.Title level={4} className="container">{`Current - ${month[new Date().getMonth()]}`}</Typography.Title>
           <div className="container">
           <Calendar
             fullscreen={false}
-            headerRender={({ value, type, onChange, onTypeChange }) => {
-              const start = 0;
-              const end = 12;
-              const monthOptions = [];
-              const current = value.clone();
-              const localeData = value.localeData();
-              const months = [];
-
-              for (let i = 0; i < 12; i++) {
-                current.month(i);
-                months.push(localeData.monthsShort(current));
-              }
-
-              for (let index = start; index < end; index++) {
-                monthOptions.push(
-                  <Select.Option className="month-item" key={`${index}`}>
-                    {months[index]}
-                  </Select.Option>
-                );
-              }
-
-              const month = value.month();
-              const year = value.year();
-              const options = [];
-
-              for (let i = year - 10; i < year + 10; i += 1) {
-                options.push(
-                  <Select.Option key={i} value={i} className="year-item">
-                    {i}
-                  </Select.Option>
-                );
-              }
-              console.log(
-                month,
-                year,
-                current.toDate(),
-                current.toLocaleString()
-              );
-              return (
-                <div
-                  style={{
-                    padding: 8,
-                    display: "flex",
-                    justifyContent: "space-between"
-                  }}
-                >
-                  <Typography.Title level={4}>{`Selected Date - ${
-                    current.date() + "-" + (month + 1) + "-" + year
-                  }`}</Typography.Title>{" "}
-                  <Row gutter={8}>
-                    <Col>
-                      <Radio.Group
-                        size="large"
-                        onChange={(e) => onTypeChange(e.target.value)}
-                        value={type}
-                      >
-                        <Radio.Button value="month">Month</Radio.Button>
-                        <Radio.Button value="year">Year</Radio.Button>
-                      </Radio.Group>
-                    </Col>
-                    <Col>
-                      <Select
-                        size="large"
-                        dropdownMatchSelectWidth={false}
-                        className="my-year-select"
-                        onChange={(newYear) => {
-                          const now = value.clone().year(Number(newYear));
-                          onChange(now);
-                        }}
-                        value={String(year)}
-                      >
-                        {options}
-                      </Select>
-                    </Col>
-                    <Col>
-                      <Select
-                        size="large"
-                        dropdownMatchSelectWidth={false}
-                        value={String(month)}
-                        onChange={(selectedMonth) => {
-                          console.log(selectedMonth);
-                          const newValue = value.clone();
-                          newValue.month(parseInt(selectedMonth, 10));
-                          console.log(selectedMonth, newValue.toLocaleString());
-                          onChange(newValue);
-                        }}
-                      >
-                        {monthOptions}
-                      </Select>
-                    </Col>
-                  </Row>
-                </div>
-              );
-            }}
+            headerRender={HeaderComponent}
             dateFullCellRender={(date) => {
               return <div className="date-cell">{date.date()}</div>;
             }}
@@ -164,10 +165,18 @@ const CalendarComponent = () => {
           />
         </div>
           </Col>
-          <Col span={12} sm={24}>
-          <Typography.Title level={4} className="container">{`Current Month - ${month[new Date().getMonth()+1]}`}</Typography.Title>
+          <Col span={12} sm={24} xs={24}>
+          <Typography.Title level={4} className="container">{`Next - ${month[new Date().getMonth()+1]}`}</Typography.Title>
           <div className="container">
-                {/*<Calendar value={value} onSelect={onSelect} onPanelChange={onPanelChange2} />*/}
+          <Calendar
+            fullscreen={false}
+            value={value.add(1, "M")}
+            headerRender={() => <div style={{height:"55px"}}></div>}
+            dateFullCellRender={(date) => {
+              return <div className="date-cell-next">{date.date()}</div>;
+            }}
+            onPanelChange={onPanelChange}
+          />
         </div>
           </Col>
         </Row>
