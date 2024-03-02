@@ -24,7 +24,7 @@ code {
   border: 1px solid;
   border-radius: 5px;
   margin: 10px;
-  font-size: 30px;
+  font-size: 5vw;
   color: #060663;
 }
 
@@ -33,7 +33,7 @@ code {
 }
 
 .date-cell {
-  font-size: 20px;
+  font-size: 3vw;
   padding: 7px;
   margin: 7px;
   border: 1px solid;
@@ -42,7 +42,7 @@ code {
 }
 
 .date-cell-next {
-  font-size: 20px;
+  font-size: 3vw;
   padding: 7px;
   margin: 7px;
   border: 1px solid;

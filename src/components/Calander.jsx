@@ -152,8 +152,8 @@ const CalendarComponent = () => {
       </Col>
       <Col>
         <Row>
-          <Col span={12} sm={24} xs={24}>
-          <Typography.Title level={4} className="container">{`Current - ${month[new Date().getMonth()]}`}</Typography.Title>
+          <Col span={12} xl={12} md={24} sm={24} xs={24}>
+          <Typography.Title level={3} className="container">{`Current - ${month[new Date().getMonth()]}`}</Typography.Title>
           <div className="container">
           <Calendar
             fullscreen={false}
@@ -165,8 +165,8 @@ const CalendarComponent = () => {
           />
         </div>
           </Col>
-          <Col span={12} sm={24} xs={24}>
-          <Typography.Title level={4} className="container">{`Next - ${month[new Date().getMonth()+1]}`}</Typography.Title>
+          <Col span={12} xl={12} md={24} sm={24} xs={24}>
+          <Typography.Title level={3} className="container">{`Next - ${month[new Date().getMonth()+1]}`}</Typography.Title>
           <div className="container">
           <Calendar
             fullscreen={false}
