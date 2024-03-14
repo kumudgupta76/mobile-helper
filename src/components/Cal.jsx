@@ -1,11 +1,21 @@
-import { Calendar, Col, Row, Select, Radio, Typography } from "antd";
+import { Calendar, Col, Row, Select, Radio, Typography, Progress } from "antd";
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
+import { green, red } from '@ant-design/colors';
+
 
 const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
 
 const Cal = () => {
+
+  const conicColors = {
+    '0%': '#87d068',
+    '50%': '#ffe58f',
+    '100%': '#ffccc7',
+  };
+
+  const [value, setValue] = useState(() => 20);
 
   if ('getBattery' in navigator) {
     navigator.getBattery().then(function(battery) {
@@ -24,6 +34,7 @@ const Cal = () => {
 
     function updateBatteryStatus(battery) {
         var percentage = Math.round(battery.level * 100);
+        setValue(percentage);
         document.getElementById('battery-fill').style.width = percentage + '%';
         document.getElementById('battery-percentage').innerText = percentage + '%';
     }
@@ -33,13 +44,15 @@ const Cal = () => {
   return (
     <div className="outer-container">
    <div id="battery-status"></div>
-   <div className="battery-container">
+   {/* <div className="battery-container">
             <div className="battery-level">
                 <div id="battery-fill" className="battery-fill" style={{width: "50%"}}></div>
             </div>
             <span id="battery-percentage">50%</span>
-        </div>
-    </div>
+  </div> */}
+      <Progress type="dashboard" percent={value} strokeColor={conicColors} />
+
+    </div> 
   );
 };
 export default Cal;

@@ -13,7 +13,9 @@ code {
 }
 
 .outer-container {
-  /* background: #e0dfff; */
+  justify-content: center;
+  display: flex;
+  margin-top: 150px;
 }
 
 
@@ -78,4 +80,12 @@ code {
   position: absolute;
   left: 0;
   top: 0;
+}
+
+.ant-progress-inner {
+  width: 500px !important;
+  height: 500px !important;
+  padding: 10px;
+  margin: 10px;
+  font-size: 120px !important;
 }
