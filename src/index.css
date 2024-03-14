@@ -57,3 +57,25 @@ code {
 .ant-typography {
   color: #060663 !important;
 }
+
+
+.battery-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.battery-level {
+  width: 500px;
+  height: 300px;
+  border: 1px solid #000;
+  margin: 20%;
+  position: relative;
+  overflow: hidden;
+}
+.battery-fill {
+  background-color: #0f0; /* Green color */
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

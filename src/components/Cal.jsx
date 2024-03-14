@@ -7,45 +7,39 @@ const month = ["January","February","March","April","May","June","July","August"
 
 const Cal = () => {
 
-  function onPanelChange(value, mode) {
-    console.log(value, mode);
-  }
+  if ('getBattery' in navigator) {
+    navigator.getBattery().then(function(battery) {
+        // Update battery status initially
+        updateBatteryStatus(battery);
 
-  const [value, setValue] = useState(() => dayjs('2017-01-25'));
-    const [selectedValue, setSelectedValue] = useState(() => dayjs('2017-01-25'));
-  const onSelect = (newValue) => {
-    setValue(newValue);
-    setSelectedValue(newValue);
-  };
-  const onPanelChange2 = (newValue) => {
-    setValue(newValue);
-  };
+        // Update battery status whenever it changes
+        battery.addEventListener('chargingchange', function() {
+            updateBatteryStatus(battery);
+        });
 
+        battery.addEventListener('levelchange', function() {
+            updateBatteryStatus(battery);
+        });
+    });
+
+    function updateBatteryStatus(battery) {
+        var percentage = Math.round(battery.level * 100);
+        document.getElementById('battery-fill').style.width = percentage + '%';
+        document.getElementById('battery-percentage').innerText = percentage + '%';
+    }
+} else {
+    document.getElementById('battery-status').innerText = "Battery Status API not supported";
+}
   return (
     <div className="outer-container">
-    <Row>
-      <Col style={{ width: "100%" }}>
-        <div id="time-now-3" className="container"></div>
-      </Col>
-      <Col>
-        <Row>
-          <Col span={12} sm={12} xs={24}>
-          <Typography.Title level={4} className="container">{`Current Month - ${month[new Date().getMonth()]}`}</Typography.Title>
-          <div className="container">
-            <Calendar onPanelChange={onPanelChange} fullscreen={false}/>
-          </div>
-          </Col>
-          <Col span={12} sm={12} xs={24}>
-          <Typography.Title level={4} className="container">{`Current Month - ${month[new Date().getMonth()+1]}`}</Typography.Title>
-          <div className="container">
-                <Calendar onPanelChange={onPanelChange2} fullscreen={false} defaultValue={dayjs('2017-01-25')}/>
+   <div id="battery-status"></div>
+   <div className="battery-container">
+            <div className="battery-level">
+                <div id="battery-fill" className="battery-fill" style={{width: "50%"}}></div>
+            </div>
+            <span id="battery-percentage">50%</span>
         </div>
-          </Col>
-        </Row>
-      </Col>
-    </Row>
     </div>
   );
 };
-
 export default Cal;

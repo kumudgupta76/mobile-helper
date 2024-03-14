@@ -6,8 +6,8 @@ import Cal from './components/Cal';
 function App() {
   return (
     <>
-    {/* <Cal></Cal> */}
-    <CalendarComponent></CalendarComponent>
+    <Cal></Cal>
+    {/* <CalendarComponent></CalendarComponent> */}
     </>
   );
 }
