@@ -3,12 +3,12 @@
     "name": "Mobile Helper Application",
     "icons": [
       {
-        "src": "icon.png",
+        "src": "battery.png",
         "type": "image/png",
         "sizes": "192x192"
       },
       {
-        "src": "icon.png",
+        "src": "battery.png",
         "type": "image/png",
         "sizes": "512x512"
       }

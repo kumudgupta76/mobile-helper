@@ -17,7 +17,7 @@ self.addEventListener("push", payload => {
     const notificationOptions = {
       body: 'This is just a test notification sent from local servet',
       data: 'you can provide additional data here',
-      icon: 'icon.png'
+      icon: 'battery.png'
     };
   
     return self.registration.showNotification(
