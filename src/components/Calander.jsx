@@ -1,4 +1,5 @@
 import { Calendar, Col, Row, Select, Radio, Typography } from "antd";
+import { DatePicker, Space } from 'antd';
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 
@@ -135,29 +136,30 @@ const CalendarComponent = () => {
   }
 
   const [value, setValue] = useState(() => dayjs());
-    const [selectedValue, setSelectedValue] = useState(() => dayjs('2017-01-25'));
-  const onSelect = (newValue) => {
-    setValue(newValue);
-    setSelectedValue(newValue);
-  };
+
   const onPanelChange2 = (newValue) => {
     setValue(newValue);
   };
-
+  const onChangeDate = (date, dateString) => {
+    console.log(date, dateString);
+    if(date)
+    setValue(date);
+  };
   return (
     <div className="outer-container">
     <Row>
       <Col style={{ width: "100%" }}>
-        <div id="time-now" className="container"></div>
+      <Typography.Title level={2} className="container">{`${value}`}</Typography.Title>
+        <DatePicker onChange={onChangeDate} />
       </Col>
       <Col>
         <Row>
           <Col span={12} xl={12} md={24} sm={24} xs={24}>
-          <Typography.Title level={3} className="container">{`Current - ${month[new Date().getMonth()]}`}</Typography.Title>
+          <Typography.Title level={3} className="container">{`Current - ${month[value.month()]}`}</Typography.Title>
           <div className="container">
           <Calendar
             fullscreen={false}
-            headerRender={HeaderComponent}
+            headerRender={() => <div style={{}}></div>}
             dateFullCellRender={(date) => {
               return <div className="date-cell">{date.date()}</div>;
             }}
@@ -166,12 +168,12 @@ const CalendarComponent = () => {
         </div>
           </Col>
           <Col span={12} xl={12} md={24} sm={24} xs={24}>
-          <Typography.Title level={3} className="container">{`Next - ${month[new Date().getMonth()+1]}`}</Typography.Title>
+          <Typography.Title level={3} className="container">{`Next - ${month[value.month()+1]}`}</Typography.Title>
           <div className="container">
           <Calendar
             fullscreen={false}
             value={value.add(1, "M")}
-            headerRender={() => <div style={{height:"55px"}}></div>}
+            headerRender={() => <div style={{}}></div>}
             dateFullCellRender={(date) => {
               return <div className="date-cell-next">{date.date()}</div>;
             }}
