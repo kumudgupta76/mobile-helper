@@ -1,6 +1,6 @@
 {
-    "short_name": "CalApp",
-    "name": "Calander Application",
+    "short_name": "MobileHelper",
+    "name": "Mobile Helper Application",
     "icons": [
       {
         "src": "icon.png",
