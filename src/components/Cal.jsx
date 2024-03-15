@@ -31,7 +31,7 @@ const Cal = () => {
     const intervalId = setInterval(() => {
       // Call your method here
       myMethod()
-    }, 5000) // Interval of 5000 milliseconds (5 seconds)
+    }, 1000) // Interval of 1000 milliseconds (1 seconds)
 
     // Clear the interval when the component unmounts
     return () => clearInterval(intervalId)
