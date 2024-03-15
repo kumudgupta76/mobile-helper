@@ -1,14 +1,27 @@
+const CACHE_NAME = 'my-pwa-cache-v1';
+const urlsToCache = [
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/logo.png',
+  '/battery.png',
+  '/icon.png'
+  // Add other assets you want to cache
+];
+
+
 self.addEventListener("install", event =>
-  event.waitUntil(caches.open("v1").then(cache => cache.add("/offline.html")))
+event.waitUntil(
+  caches.open(CACHE_NAME)
+    .then(cache => cache.addAll(urlsToCache))
+);
 );
 
 self.addEventListener("fetch", event => 
-    event.respondWith(
-        fetch(event.request).catch(() => caches.open('v1').then(
-            cache => cache.match('/offline.html')
-            )
-        )
-    )
+event.respondWith(
+  caches.match(event.request)
+    .then(response => response || fetch(event.request))
+);
 );
 
 self.addEventListener("push", payload => {
