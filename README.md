@@ -1,3 +1,17 @@
+### About This Repo 
+
+this repo can be used as bolierplate for react app(antd) with basic pwa requirements.
+There are few steps which can be followed to get this in work
+
+  -  import this repo, go to https://github.com/new/import
+  -  copy this repo url in to input box - https://github.com/kumudgupta76/mobile-helper
+  -  open in codespaces
+  -  npm install
+  -  npm run deploy - this will create build and push changes to gh-pages branch
+  - 
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
