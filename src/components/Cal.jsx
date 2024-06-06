@@ -1,7 +1,8 @@
-import { Calendar, Col, Row, Select, Radio, Typography, Progress } from 'antd'
+import { Calendar, Col, Row, Select, Radio, Typography, Progress, Spin } from 'antd'
 import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 import { green, red } from '@ant-design/colors'
+import { LoadingOutlined } from '@ant-design/icons';
 
 const month = [
   'January',
@@ -25,7 +26,7 @@ const Cal = () => {
     '100%': '#ffccc7'
   }
 
-  const [value, setValue] = useState(() => 20)
+  const [value, setValue] = useState(() => 0)
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -57,12 +58,9 @@ const Cal = () => {
         })
       })
 
-      function updateBatteryStatus (battery) {
+      function updateBatteryStatus(battery) {
         var percentage = Math.round(battery.level * 100)
         setValue(percentage)
-        document.getElementById('battery-fill').style.width = percentage + '%'
-        document.getElementById('battery-percentage').innerText =
-          percentage + '%'
       }
     } else {
       document.getElementById('battery-status').innerText =
@@ -71,15 +69,19 @@ const Cal = () => {
   }
 
   return (
+
     <div className='outer-container'>
       <div id='battery-status'></div>
-      {/* <div className="battery-container">
-            <div className="battery-level">
-                <div id="battery-fill" className="battery-fill" style={{width: "50%"}}></div>
-            </div>
-            <span id="battery-percentage">50%</span>
-  </div> */}
-      <Progress type='dashboard' percent={value} strokeColor={conicColors} />
+      {value == 0 ? <Spin
+        indicator={
+          <LoadingOutlined
+            style={{
+              fontSize: 100,
+            }}
+            spin
+          />
+        }
+      /> : <Progress type='dashboard' percent={value} strokeColor={conicColors} />}
     </div>
   )
 }
