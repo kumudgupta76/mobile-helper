@@ -10,6 +10,7 @@ There are few steps which can be followed to get this in work
   -  npm run deploy - this will create build and push changes to gh-pages branch
   - 
 
+To view this repo go to url - https://kumudgupta76.github.io/mobile-helper/
 
 
 # Getting Started with Create React App
