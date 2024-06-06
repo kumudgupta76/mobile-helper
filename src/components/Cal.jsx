@@ -72,7 +72,7 @@ const Cal = () => {
 
     <div className='outer-container'>
       <div id='battery-status'></div>
-      {value == 0 ? <Spin
+      {value === 0 ? <Spin
         indicator={
           <LoadingOutlined
             style={{
