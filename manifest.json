@@ -8,13 +8,18 @@
         "sizes": "192x192"
       },
       {
-        "src": "/icons/battery-64.png",
+        "src": "/icons/battery-128.png",
+        "type": "image/png",
+        "sizes": "128x128"
+      },
+      {
+        "src": "/icons/battery-256.png",
         "type": "image/png",
         "sizes": "192x192",
         "purpose": "maskable"
       },
       {
-        "src": "/icons/battery-64.png",
+        "src": "/icons/battery_512.png",
         "type": "image/png",
         "sizes": "512x512",
         "purpose": "maskable"
