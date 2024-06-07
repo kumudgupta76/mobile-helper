@@ -1,33 +1,28 @@
 {
-    "short_name": "MobileHelper",
-    "name": "Mobile Helper Application",
-    "icons": [
-      {
-        "src": "/icons/battery-64.png",
-        "type": "image/png",
-        "sizes": "192x192"
-      },
-      {
-        "src": "/icons/battery-128.png",
-        "type": "image/png",
-        "sizes": "144x144"
-      },
-      {
-        "src": "/icons/battery-256.png",
-        "type": "image/png",
-        "sizes": "192x192",
-        "purpose": "maskable"
-      },
-      {
-        "src": "/icons/battery_512.png",
-        "type": "image/png",
-        "sizes": "512x512",
-        "purpose": "maskable"
-      }
-    ],
-    "start_url": "index.html",
-    "background_color": "#060663",
-    "display": "standalone",
-    "scope": "/",
-    "theme_color": "#060663"
-  }
+  "short_name": "MobileHelper",
+  "name": "Mobile Helper Application",
+  "icons": [
+    {
+      "src": "battery_256.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "battery_256.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "battery_512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#32a8a6",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#32a8a6"
+}
