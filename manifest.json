@@ -3,12 +3,12 @@
   "name": "Mobile Helper Application",
   "icons": [
     {
-      "src": "battery_128.png",
+      "src": "battery_256.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "battery_128.png",
+      "src": "battery_256.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "maskable"
