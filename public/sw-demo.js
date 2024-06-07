@@ -5,7 +5,12 @@ const urlsToCache = [
   '/manifest.json',
   '/logo.png',
   '/battery.png',
-  '/icon.png'
+  '/icon.png',
+  '/icons/battery-64.png',
+  '/icons/battery_64.png',
+  '/icons/battery_128.png',
+  '/icons/battery_256.png',
+  '/icons/battery_512.png'
   // Add other assets you want to cache
 ];
 

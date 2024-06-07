@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 import { green, red } from '@ant-design/colors'
 import { LoadingOutlined } from '@ant-design/icons';
+const { Text, Link, Title } = Typography;
 
 const month = [
   'January',
@@ -21,12 +22,13 @@ const month = [
 
 const Cal = () => {
   const conicColors = {
-    '0%': '#87d068',
+    '0%': '#ffccc7',
     '50%': '#ffe58f',
-    '100%': '#ffccc7'
+    '100%': '#87d068'
   }
 
   const [value, setValue] = useState(() => 0)
+  const [batterySupported, setBatterySupported] = useState(() => true)
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -63,25 +65,37 @@ const Cal = () => {
         setValue(percentage)
       }
     } else {
-      document.getElementById('battery-status').innerText =
-        'Battery Status API not supported'
+      setBatterySupported(false)
     }
   }
 
   return (
 
     <div className='outer-container'>
-      <div id='battery-status'></div>
-      {value === 0 ? <Spin
-        indicator={
-          <LoadingOutlined
-            style={{
-              fontSize: 100,
-            }}
-            spin
-          />
-        }
-      /> : <Progress type='dashboard' percent={value} strokeColor={conicColors} />}
+      {
+        batterySupported ?
+          value === 0 ? <Spin
+            indicator={
+              <LoadingOutlined
+                style={{
+                  fontSize: 100,
+                }}
+                spin
+              />
+            }
+          /> : <Row>
+            <Col span={24} style={{ textAlign: 'center', justifyContent: "center" }}>
+              <Title level={4}> Battery Status</Title>
+            </Col>
+            <Col span={24} style={{ textAlign: 'center', marginTop: '30px' }}>
+              <Progress type='dashboard' percent={value} strokeColor={conicColors} size='large' />
+            </Col>
+            <Col span={24} style={{ textAlign: 'center', marginTop: '30px' }}>
+              <Progress steps={5} percent={value} strokeWidth={30} />
+            </Col>
+          </Row>
+          : <Title level={3}> Battery Status API not supported</Title>
+      }
     </div>
   )
 }
