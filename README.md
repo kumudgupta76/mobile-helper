@@ -8,6 +8,7 @@ There are few steps which can be followed to get this in work
   -  new repo and this repo should be public by default
   -  open in codespaces
   -  npm install
+  -  replace all occurance of mobile-helper with new <repo-name>
   -  npm run deploy - this will create build and push changes to gh-pages branch
   -  settings -> pages -> deploy from branch -> gh-pages
     
